@@ -28,7 +28,9 @@ class ListItem extends React.Component {
   }
   render() {
     return (
-      <div>
+
+
+      <div className='card'>
         <img src={this.props.item.imageUrl} />
         <h2>{this.props.item.name}</h2>
         <h3> {this.props.item.description}</h3>
@@ -36,7 +38,6 @@ class ListItem extends React.Component {
           type="text"
           name="name"
           onChange={this.handlechange.bind(this)}
-
         />
         <input
           type="text"
@@ -48,14 +49,14 @@ class ListItem extends React.Component {
           name="imageUrl"
           onChange={this.handlechange.bind(this)}
         />
-        <button
+        <button className="deletebtn"
           onClick={() => {
             this.delete(this.props.item._id);
           }}
         >
           delete
         </button>
-        <button
+        <button className="updatebtn"
           onClick={() => {
             this.update(this.props.item._id);
           }}

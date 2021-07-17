@@ -3,8 +3,17 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import List from "./components/List.jsx";
 import axios from "axios";
+import Header from "./components/Header.jsx";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +39,7 @@ class App extends React.Component {
   }
 
   handlechange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({  [e.target.name]: e.target.value });
     console.log(this.state);
   }
   create() {
@@ -46,22 +55,38 @@ class App extends React.Component {
           type="text"
           name="name"
           onChange={this.handlechange.bind(this)}
-        />
-        <input
-          type="text"
-          name="description"
-          onChange={this.handlechange.bind(this)}
+          placeholder= "Tilte"
+          />
+        <input type="text" name="description"  onChange={this.handlechange.bind(this)}
+        placeholder="desrciption"
         />
         <input
           type="text"
           name="imageUrl"
           onChange={this.handlechange.bind(this)}
-        />
+          placeholder="imageUrl"
+          />
         <button onClick={this.create.bind(this)}>Add Book</button>
         <List items={this.state.items} />
-      </div>
+          </div>
+           
     );
   }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
